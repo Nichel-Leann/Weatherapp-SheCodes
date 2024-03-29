@@ -15,27 +15,30 @@
   <body>
     <div class="weather-app-body">
       <header>
-        <form>
+        <form class="search-form">
           <input
+            class="search-form-input"
             type="search"
             placeholder="Enter a city..."
             required
             minlength="3"
           />
-          <input type="submit" value="Search" />
+          <input class="search-form-button" type="submit" value="Search" />
         </form>
       </header>
 
       <main>
-        <div>
-          <h1>Kingston</h1>
-          <p>
-            Thursday 16:57, clear sky
-            <br />
-            Humidity: 70%, Wind: 5.14km/h
-          </p>
+        <div class="weather-data">
+          <div>
+            <h1>Kingston</h1>
+            <p>
+              Thursday 16:57, clear sky
+              <br />
+              Humidity: 70%, Wind: 5.14km/h
+            </p>
+          </div>
+          <div>🌥️12°C</div>
         </div>
-        <div>🌥️12°C</div>
       </main>
 
       <footer>
