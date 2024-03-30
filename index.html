@@ -15,9 +15,10 @@
   <body>
     <div class="weather-app-body">
       <header>
-        <form class="search-form">
+        <form class="search-form" id="search-form">
           <input
             class="search-form-input"
+            id="search-form-input"
             type="search"
             placeholder="Enter a city..."
             required
@@ -30,7 +31,7 @@
       <main>
         <div class="weather-data">
           <div>
-            <h1 class="city-name">Kingston</h1>
+            <h1 class="city-name" id="city-name">Kingston</h1>
             <p class="weather-details">
               Thursday 16:57, clear sky
               <br />
@@ -56,11 +57,13 @@
           target="_blank"
           >open-sourced on GitHub</a
         >
+        <br />
         and
         <a href="https://easyshecodesweatherapp.netlify.app/" target="_blank"
           >hosted on Netlify.</a
         >
       </footer>
     </div>
+    <script src="index.js"></script>
   </body>
 </html>
