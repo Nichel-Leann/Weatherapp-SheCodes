@@ -7,12 +7,7 @@ header {
   border-bottom: 1px solid #f3821115;
 }
 main {
-  padding: 30px, 0;
-}
-h1 {
-  margin: 0;
-  font-size: 38px;
-  line-height: 48px;
+  padding: 30px 0;
 }
 
 a {
@@ -60,13 +55,35 @@ footer {
   display: flex;
   justify-content: space-between;
 }
+.city-name {
+  margin: 0;
+  font-size: 38px;
+  line-height: 48px;
+}
+.weather-details {
+  font-size: 16px;
+  color: rgba(39, 33, 66, 0.4);
+  font-weight: 500;
+  line-height: 24px;
+}
 
 .weather-data-unit {
+  font-weight: bold;
+  color: #f65282;
 }
 
 .weather-icon {
+  font-size: 44px;
+  position: relative;
+  top: -13px;
+  left: 5px;
 }
 .weather-degree {
+  font-size: 88px;
+  font-weight: bold;
 }
 .weather-unit {
+  position: relative;
+  top: -46px;
+  font-size: 28px;
 }
