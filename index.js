@@ -1,9 +1,18 @@
 function refreshWeather(response) {
   let temperature = document.querySelector("#weather-temperature");
   let city = document.querySelector("#city-name");
+  let description = document.querySelector("#description");
+  let humidity = document.querySelector("#weather-data-unit");
+  let wind = document.querySelector("#weather-data-unit-wind");
+  //let icon = document.querySelector("#weather-icon");
 
+  console.log(response.data);
   city.innerHTML = response.data.city;
+  description.innerHTML = response.data.condition.description;
   temperature.innerHTML = Math.round(response.data.temperature.current);
+  humidity.innerHTML = `${response.data.temperature.humidity}%`;
+  wind.innerHTML = `${response.data.wind.speed}km/h`;
+  //icon.innerHTML = response.data.condition.icon_url;
 }
 
 function searchCity(city) {
@@ -22,3 +31,5 @@ let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", searchSubmit);
 
 searchCity("Miami");
+
+//response.data.condition.icon_url;
