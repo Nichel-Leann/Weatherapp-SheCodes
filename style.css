@@ -75,7 +75,7 @@ footer {
 .weather-icon {
   font-size: 44px;
   position: relative;
-  top: -13px;
+  top: 12px;
   left: 5px;
 }
 .weather-temperature {
