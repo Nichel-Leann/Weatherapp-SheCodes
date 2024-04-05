@@ -53,6 +53,13 @@ function searchSubmit(event) {
   searchCity(searchInput.value);
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[date.getDay()];
+}
+
 function getForcast(city) {
   let apiKey = "7cb8ee5ca2d9a7d635ae020542o0tf58";
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
@@ -60,25 +67,34 @@ function getForcast(city) {
 }
 
 function displayForcast(response) {
-  let days = [`Wed`, `Thur`, `Fri`, `Sat`, `Sun`];
+  //console.log(response.data);
+
   let forcastHtml = "";
 
-  days.forEach(function (day) {
-    forcastHtml =
-      forcastHtml +
-      `
+  response.data.daily.forEach(function (day, index) {
+    if (index < 5) {
+      forcastHtml =
+        forcastHtml +
+        `
 <div class="weather-forecast-day">
-<div class="weather-forecast-date">${day}</div>
-          <div class="weather-forecast-icon">🌤️</div>
+<div class="weather-forecast-date">${formatDay(day.time)}</div>
+          
+
+          <img src= "${day.condition.icon_url}" class="weather-forecast-icon" />
+          
           <div class="weather-forecast-temperatures">
-            <span class="weather-forecast-temperature-max">
-              <strong>18º</strong>
-            </span>
-            <span class="weather-forecast-temperature-min">12º</span>
+            <div class="weather-forecast-temperature-max">
+              <strong>${Math.round(day.temperature.maximum)}°</strong> 
+            </div>
+            <div class="weather-forecast-temperature-min"> ${Math.round(
+              day.temperature.minimum
+            )}°</div>
           </div>
 </div>
 `;
+    }
   });
+
   let forcast = document.querySelector("#weather-forcast");
   forcast.innerHTML = forcastHtml;
 }

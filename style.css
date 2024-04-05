@@ -72,14 +72,22 @@ footer {
   color: #f65282;
 }
 
-.weather-icon {
-  font-size: 44px;
+.weather-today {
   position: relative;
-  top: 12px;
-  left: 5px;
+  top: -18px;
+  margin-right: 10px;
+}
+
+.weather-icon {
+  width: 88px;
+  height: 88px;
+  position: relative;
+  top: 7px;
+  right: -1px;
 }
 .weather-temperature {
   font-size: 88px;
+  line-height: 88px;
   font-weight: bold;
 }
 .weather-unit {
@@ -103,15 +111,17 @@ footer {
 }
 
 .weather-forecast-icon {
-  font-size: 38px;
-  text-align: center;
+  width: 80px;
+  height: 80px;
+  display: block;
+  margin: 0 auto;
 }
 .weather-forecast-temperatures {
   text-align: center;
   color: #f65282;
   margin-top: 10px;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .weather-forecast-temperature {
