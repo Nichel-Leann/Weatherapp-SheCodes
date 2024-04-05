@@ -8,7 +8,7 @@ function refreshWeather(response) {
   let date = new Date(response.data.time * 1000);
   let icon = document.querySelector("#weather-icon");
 
-  console.log(response.data);
+  //console.log(response.data);
   city.innerHTML = response.data.city;
   description.innerHTML = response.data.condition.description;
   temperature.innerHTML = Math.round(response.data.temperature.current);
@@ -16,6 +16,8 @@ function refreshWeather(response) {
   wind.innerHTML = `${response.data.wind.speed}km/h`;
   time.innerHTML = formatDate(date);
   icon.innerHTML = `<img src= "${response.data.condition.icon_url}" class="weather-icon"/>`;
+
+  getForcast(response.data.city);
 }
 
 function formatDate(date) {
@@ -51,7 +53,13 @@ function searchSubmit(event) {
   searchCity(searchInput.value);
 }
 
-function displayForcast() {
+function getForcast(city) {
+  let apiKey = "7cb8ee5ca2d9a7d635ae020542o0tf58";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
+  axios(apiUrl).then(displayForcast);
+}
+
+function displayForcast(response) {
   let days = [`Wed`, `Thur`, `Fri`, `Sat`, `Sun`];
   let forcastHtml = "";
 
@@ -79,4 +87,3 @@ let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", searchSubmit);
 
 searchCity("Miami");
-displayForcast();
