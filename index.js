@@ -1,4 +1,8 @@
 function refreshWeather(response) {
+  if (!response.data.city) {
+    return false;
+  }
+
   let temperature = document.querySelector("#weather-temperature");
   let city = document.querySelector("#city-name");
   let description = document.querySelector("#description");
